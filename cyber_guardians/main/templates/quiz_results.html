@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Quiz Results - CyberGuardians{% endblock %}
+
+{% block content %}
+
+ <div class="container mt-5">
+        <h1>Quiz Results</h1>
+        <p>You scored <strong>{{ score }}</strong> out of <strong>{{ total_questions }}</strong> questions.</p>
+        
+        {% if score == total_questions %}
+            <p class="text-success">Excellent! You answered all questions correctly!</p>
+        {% elif score >= total_questions / 2 %}
+            <p class="text-warning">Good job! You have a solid understanding of phishing awareness.</p>
+        {% else %}
+            <p class="text-danger">It looks like you need to review the material again. Don't worry, practice makes perfect!</p>
+        {% endif %}
+        
+        <a href="{% url 'training' quiz.training.id %}" class="btn btn-primary">Back to Training Module</a>
+    </div>
+{% endblock %}

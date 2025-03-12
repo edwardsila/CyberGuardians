@@ -3,20 +3,23 @@
 {% block title %}Training Modules - CyberGuardians{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1 class="text-center my-4">Training Modules</h1>
-    <div class="row">
-        {% for module in training_modules %}
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">{{ module.title }}</h5>
-                    <p class="card-text">{{ module.description|truncatewords:20 }}</p>
-                    <a href=" " class="btn btn-primary">Start Training</a>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
+ <div class="container mt-5">
+        <h1>{{ module.title }}</h1>
+        <p><strong>Description:</strong> {{ module.description }}</p>
+        <p><strong>Duration:</strong> {{ module.duration_minutes }} minutes</p>
+        <p><strong>Content:</strong> {{ module.content }}</p>
+        
+        {% if module.video_url %}
+            <h3>Video</h3>
+            <iframe width="560" height="315" src="{{ module.video_url }}" frameborder="0" allowfullscreen></iframe>
+        {% endif %}
+        
+        {% if module.image %}
+            <h3>Image</h3>
+            <img src="{{ module.image.url }}" alt="{{ module.title }}" class="img-fluid">
+        {% endif %}
+        
+        <p><strong>Created At:</strong> {{ module.created_at }}</p>
+        <p><strong>Updated At:</strong> {{ module.updated_at }}</p>
     </div>
-</div>
 {% endblock %}
