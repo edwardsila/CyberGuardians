@@ -1,1 +1,81 @@
-<h1> cyberguardian home page </h1>
+{% extends 'base.html' %}
+
+{% block title %}Home - CyberGuardians{% endblock %}
+
+{% block content %}
+<section class="hero text-center">
+    <div class="jumbotron bg-primary text-white">
+        <h1 class="display-4">Welcome to CyberGuardians</h1>
+        <p class="lead">Your go-to platform for cybersecurity awareness and training.</p>
+        <p class="lead">SMEs.</p>
+        <a href="" class="btn btn-light btn-lg">Get Started</a>
+    </div>
+</section>
+
+<section class="features my-5">
+    <h2 class="text-center">Features</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Training Modules</h5>
+                        <p class="card-text">Engaging training modules to enhance your cybersecurity knowledge.</p>
+                        <a href="" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Incident Reporting</h5>
+                        <p class="card-text">Report incidents and learn how to handle them effectively.</p>
+                        <a href="" class="btn btn-primary">Report Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Resources</h5>
+                        <p class="card-text">Access a wealth of resources to stay informed about cybersecurity.</p>
+                        <a href="" class="btn btn-primary">Explore Resources</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials my-5">
+    <h2 class="text-center">What Our Users Say</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">"CyberGuardians has transformed the way I think about online safety!"</p>
+                        <footer class="blockquote-footer">User  A</footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">"The training modules are engaging and informative!"</p>
+                        <footer class="blockquote-footer">User  B</footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">"I feel much more confident in my ability to handle cyber threats!"</p>
+                        <footer class="blockquote-footer">User  C</footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
