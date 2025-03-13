@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Report Submitted - CyberGuardians{% endblock %}
+
+{% block content %}
+<br><Br>
+
+ <div class="container mt-5">
+        <h1>Incident Report Submitted</h1>
+        <p>Thank you for your report. It has been submitted successfully!</p>
+        <br>
+        <a href="{% url 'report_incident' %}" class="btn btn-primary">Report Another Incident</a>
+    </div>
+<br><Br><br><br>
+<br><Br><br><br>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Incident Reporting - CyberGuardians{% endblock %}
+
+{% block content %}
+<div class="container px-5 my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 rounded-3 shadow-lg">
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <div class="h1 fw-light">Report an Incident</div>
+                            <p class="mb-4 text-muted">Please fill out the form below to report an incident.</p>
+                        </div>
+
+                        <form method="post" id="incidentForm">
+                            {% csrf_token %}
+
+                            <!-- Incident Title Input -->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="incidentTitle" name="title" type="text" placeholder="Incident Title" required />
+                                <label for="incidentTitle">Incident Title</label>
+                                <div class="invalid-feedback">Incident title is required.</div>
+                            </div>
+
+                            <!-- Description Input -->
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="incidentDescription" name="description" placeholder="Describe the incident" style="height: 10rem;" required></textarea>
+                                <label for="incidentDescription">Description</label>
+                                <div class="invalid-feedback">Description is required.</div>
+                            </div>
+
+        
+
+                            <!-- Submit success message -->
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Incident report submitted successfully!</div>
+                                </div>
+                            </div>
+
+                            <!-- Submit error message -->
+                            <div class="d-none" id="submitErrorMessage">
+                                <div class="text-center text-danger mb-3">Error submitting report!</div>
+                            </div>
+
+                            <!-- Submit button -->
+                             <div class="d-flex justify-content-between">
+                             <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit Report</button>
+                            <a href="{% url 'home' %}" class="btn btn-primary btn-lg">Back</a>
+</div>
+                        </form>
+                        <!-- End of incident report form -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CDN Link to SB Forms Scripts -->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+<br><Br><br><br>
+<br><Br><br><br>
+
+{% endblock %}

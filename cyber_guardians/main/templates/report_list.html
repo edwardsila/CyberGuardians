@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Incident Reports - CyberGuardians{% endblock %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Your Incident Reports</h1>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Reported At</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for report in reports %}
+                <tr>
+                    <td>{{ report.title }}</td>
+                    <td>{{ report.description|truncatewords:10 }}</td>
+                    <td>{{ report.reported_at }}</td>
+                    <td>
+                        <form method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <select name="status" onchange="this.form.submit()">
+                                <option value="open" {% if report.status == 'open' %}selected{% endif %}>Open</option>
+                                <option value="in_progress" {% if report.status == 'in_progress' %}selected{% endif %}>In Progress</option>
+                                <option value="resolved" {% if report.status == 'resolved' %}selected{% endif %}>Resolved</option>
+                                <option value="closed" {% if report.status == 'closed' %}selected{% endif %}>Closed</option>
+                            </select>
+                            <input type="hidden" name="report_id" value="{{ report.id }}">
+                            <input type="hidden" name="update_status" value="true">
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <input type="hidden" name="report_id" value="{{ report.id }}">
+                            <input type="hidden" name="delete" value="true">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center">No reports found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'report_incident' %}" class="btn btn-primary">Report New Incident</a>
+    </div>
+<br><Br><br><br>
+<br><Br><br><br>
+
+{% endblock %}
