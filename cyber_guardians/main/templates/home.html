@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home - CyberGuardians{% endblock %}
 
@@ -11,7 +12,27 @@
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
 }
+
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('{% static 'main/images/login3.png' %}');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 </style>
+
+<header class="masthead">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+      </div>
+    </div>
+  </div>
+</header>
+
 
 <section class="hero text-center">
     <div class="jumbotron bg-secondary text-white rounded shadow">
