@@ -3,8 +3,18 @@
 {% block title %}Home - CyberGuardians{% endblock %}
 
 {% block content %}
+<style type="text/css">
+    .jumbotron {
+    background-color: rgba(108, 117, 125, 0.8); /* Semi-transparent gray color */
+    color: white; /* Text color */
+    padding: 2rem; /* Adjust padding as needed */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+</style>
+
 <section class="hero text-center">
-    <div class="jumbotron bg-primary text-white">
+    <div class="jumbotron bg-secondary text-white rounded shadow">
         <h1 class="display-4">Welcome to CyberGuardians</h1>
         <p class="lead">Your go-to platform for cybersecurity awareness and training.</p>
         <p class="lead">SMEs.</p>
@@ -21,7 +31,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Training Modules</h5>
                         <p class="card-text">Engaging training modules to enhance your cybersecurity knowledge.</p>
-                        <a href="{% url 'training_list' %}" class="btn btn-primary">Learn More</a>
+                        <a href="{% url 'training_list' %}" class="btn btn-secondary">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -30,7 +40,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Incident Reporting</h5>
                         <p class="card-text">Report incidents and learn how to handle them effectively.</p>
-                        <a href="{% url 'report_incident' %}" class="btn btn-primary">Report Now</a>
+                        <a href="{% url 'report_incident' %}" class="btn btn-secondary">Report Now</a>
                     </div>
                 </div>
             </div>
@@ -39,7 +49,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Resources</h5>
                         <p class="card-text">Access a wealth of resources to stay informed about cybersecurity.</p>
-                        <a href="" class="btn btn-primary">Explore Resources</a>
+                        <a href="" class="btn btn-secondary">Explore Resources</a>
                     </div>
                 </div>
             </div>
@@ -48,7 +58,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Articles</h5>
                         <p class="card-text">Read more about cybersecurity threats and stay informed about cybersecurity.</p>
-                        <a href="" class="btn btn-primary">Read Articles</a>
+                        <a href="" class="btn btn-secondary">Read Articles</a>
                     </div>
                 </div>
             </div>

@@ -26,13 +26,13 @@
                         <a class="nav-link" href=" ">Articles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=" ">Training</a>
+                        <a class="nav-link" href="{% url 'training_list' %}">Training</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'report_incident' %}">Report Incident</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=" ">Admin</a>
+                        <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
                     </li>
                    
 
@@ -63,12 +63,8 @@
             </div>
         {% endif %}
         {% block content %}
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+   
+   
         {% endblock %}
     </main>
 

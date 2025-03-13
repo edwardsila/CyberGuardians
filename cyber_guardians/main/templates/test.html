@@ -1,33 +1,101 @@
 {% extends 'base.html' %}
 
-{% block title %}Quiz - CyberGuardians{% endblock %}
+{% block title %}Home - CyberGuardians{% endblock %}
 
 {% block content %}
-<br><Br>
-  <div class="container mt-5">
-            {% if module.quizzes.all %}
-            <h3>{{ module.quizzes.first.title }}</h3>
-            <form method="post" action="{% url 'submit_quiz' module.quizzes.first.id %}">  <!-- Action for submitting the quiz -->
-                {% csrf_token %}
-                {% for question in module.quizzes.first.questions.all %}
-                    <div class="mb-3">
-                        <label class="form-label">{{ question.question_text }}</label>
-                        {% for answer in question.answers.all %}
-                            <div>
-                                <input type="radio" name="question_{{ question.id }}" value="{{ answer.id }}" id="answer_{{ answer.id }}">
-                                <label for="answer_{{ answer.id }}">{{ answer.answer_text }}</label>
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% endfor %}
-                <button type="submit" class="btn btn-primary">Submit Quiz</button>
-            </form>
-        {% else %}
-            <p>No quiz available for this module.</p>
-        {% endif %}
-        </ul>
-    </div>
-<br><Br><br><br>
-<br><Br><br><br>
+<style type="text/css">
+    .jumbotron {
+    background-color: rgba(108, 117, 125, 0.8); /* Semi-transparent gray color */
+    color: white; /* Text color */
+    padding: 2rem; /* Adjust padding as needed */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+</style>
 
+<section class="hero text-center">
+    <div class="jumbotron bg-secondary text-white rounded shadow">
+        <h1 class="display-4">Welcome to CyberGuardians</h1>
+        <p class="lead">Your go-to platform for cybersecurity awareness and training.</p>
+        <p class="lead">SMEs.</p>
+        <a href="{% url 'training_list' %}" class="btn btn-light btn-lg">Get Started</a>
+    </div>
+</section>
+
+<section class="features my-5">
+    <h2 class="text-center">Features</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Training Modules</h5>
+                        <p class="card-text">Engaging training modules to enhance your cybersecurity knowledge.</p>
+                        <a href="{% url 'training_list' %}" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Incident Reporting</h5>
+                        <p class="card-text">Report incidents and learn how to handle them effectively.</p>
+                        <a href="{% url 'report_incident' %}" class="btn btn-secondary">Report Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Resources</h5>
+                        <p class="card-text">Access a wealth of resources to stay informed about cybersecurity.</p>
+                        <a href="" class="btn btn-secondary">Explore Resources</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Articles</h5>
+                        <p class="card-text">Read more about cybersecurity threats and stay informed about cybersecurity.</p>
+                        <a href="" class="btn btn-secondary">Read Articles</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials my-5">
+    <h2 class="text-center">What Our Users Say</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">"CyberGuardians has transformed the way I think about online safety!"</p>
+                        <footer class="blockquote-footer">User  A</footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">"The training modules are engaging and informative!"</p>
+                        <footer class="blockquote-footer">User  B</footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">"I feel much more confident in my ability to handle cyber threats!"</p>
+                        <footer class="blockquote-footer">User  C</footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
