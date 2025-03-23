@@ -1,0 +1,73 @@
+<!-- templates/contact/contact_us.html -->
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - CyberGuardians{% endblock %}
+
+{% block content %}
+<div class="container px-5 my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 rounded-3 shadow-lg">
+                <div class="card-body p-4">
+                    <div class="text-center">
+                        <div class="h1 fw-light">Contact Us</div>
+                        <p class="mb-4 text-muted">We would love to hear from you! Please fill out the form below to get in touch.</p>
+                    </div>
+
+                    <form method="post" id="contactForm">
+                        {% csrf_token %}
+
+                        <!-- Name Input -->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="name" name="name" type="text" placeholder="Your Name" required />
+                            <label for="name">Your Name</label>
+                            <div class="invalid-feedback">Your name is required.</div>
+                        </div>
+
+                        <!-- Email Input -->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="email" name="email" type="email" placeholder="Your Email" required />
+                            <label for="email">Your Email</label>
+                            <div class="invalid-feedback">A valid email is required.</div>
+                        </div>
+
+                        <!-- Message Input -->
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="message" name="message" placeholder="Your Message" style="height: 10rem;" required></textarea>
+                            <label for="message">Your Message</label>
+                            <div class="invalid-feedback">Your message is required.</div>
+                        </div>
+
+                        <!-- Submit success message -->
+                        <div class="d-none" id="submitSuccessMessage">
+                            <div class="text-center mb-3">
+                                <div class="fw-bolder">Your message has been sent successfully!</div>
+                            </div>
+                        </div>
+
+                        <!-- Submit error message -->
+                        <div class="d-none" id="submitErrorMessage">
+                            <div class="text-center text-danger mb-3">Error sending message!</div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Send Message</button>
+                            <a href="{% url 'home' %}" class="btn btn-secondary btn-lg">Back</a>
+                        </div>
+                    </form>
+                    <!-- End of contact form -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CDN Link to SB Forms Scripts -->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+<br><br><br><br>
+<br><br><br><br>
+
+{% endblock %}

@@ -131,3 +131,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login/'
 LOGIN_REDIRECT_URL = 'home'  # Redirect to home after login
 LOGOUT_REDIRECT_URL = 'home'
+
+
+# settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'edwardsila000@gmail.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'your_email_password'  # Your email password
+DEFAULT_FROM_EMAIL = 'your_email@gmail.com'  # Your email address
+CONTACT_EMAIL = 'edwardsila000@gmail.com'  # Email to receive contact form submissions

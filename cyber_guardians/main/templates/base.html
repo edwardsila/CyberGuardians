@@ -24,13 +24,12 @@
         <div class="navbar-container">
             <a href="{% url 'home' %}" class="navbar-logo">CyberGuardians</a>
             <ul class="navbar-menu">
-                <li><a href="">About Us</a></li>
-                <li><a href="">Resources</a></li>
-                <li><a href="">Models</a></li>
-                <li><a href="">Report incidence</a></li>
-                <li><a href="">Articles</a></li>
+                <li><a href="{% url 'about_us' %}">About Us</a></li>
+                <li><a href="{% url 'resource_list' %}">Resources</a></li>
+                <li><a href="{% url 'report_incident' %}">Report incidence</a></li>
+                <li><a href="{% url 'training_list' %}">Train</a></li>
                 </li>
-                <li><a href="">Contact</a></li>
+                <li><a href="{% url 'contact_us' %}">Contact</a></li>
                    {% if not request.user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">Login</a>

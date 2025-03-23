@@ -13,5 +13,9 @@ urlpatterns = [
     path('quiz/<int:quiz_id>/', views.quiz_view, name='quiz'),
     path('report/', views.report_incident, name='report_incident'),
     path('success/', views.report_success, name='report_success'),
-    path('list/', views.report_list, name='report_list')
+    path('list/', views.report_list, name='report_list'),
+    path('resources/', views.ResourceListView.as_view(), name='resource_list'),
+    path('resources/<int:pk>/', views.ResourceDetailView.as_view(), name='resource_detail'),
+    path('about/', views.about_us, name='about_us'),
+    path('contact/', views.contact_us, name='contact_us'),
 ]

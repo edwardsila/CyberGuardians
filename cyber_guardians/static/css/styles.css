@@ -1,9 +1,11 @@
 /* Reset default margins and padding */
+
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%; /* Optional: Set height to 100% if needed */
+    background-color: #d3d3d3; /* Dark gray background */
 }
 
 /* Full-width container */

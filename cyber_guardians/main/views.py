@@ -2,9 +2,12 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .models import trainingModule, quiz, question, answer, incidentReport
+from .models import trainingModule, quiz, question, answer, incidentReport, Resource
 from .forms import incidentReportForm
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView, DetailView
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 def home(request):
@@ -127,3 +130,43 @@ def report_list(request):
             return redirect('incident_report:report_list')
 
     return render(request, 'report_list.html', {'reports': reports})
+
+class ResourceListView(ListView):
+	model = Resource
+	template_name = 'resource_list.html'
+	context_object_name = 'resources'
+
+class ResourceDetailView(DetailView):
+	model = Resource
+	template_name = 'resource_detail.html'
+	context_object_name = 'resource'
+
+def about_us(request):
+	return render(request, 'about_us.html')
+
+def contact_us(request):
+	if request.method == 'POST':
+		name = request.POST.get('name')
+		email = request.POST.get('email')
+		message = request.POST.get('message')
+
+		try:
+			send_mail(
+            	f'Contact Form Submission from {name}',
+                message,
+                settings.DEFAULT_FROM_EMAIL,
+                [settings.CONTACT_EMAIL],  # Set this in your settings.py
+                fail_silently=False,
+            )
+            return render(request, 'contact_us.html', {
+        	'success': True
+        	})
+
+        except Exception as e:
+            # Handle the error (optional logging can be added here)
+            print(f"Error sending email: {e}")
+            return render(request, 'contact_us.html', {'error': True
+            })
+
+    return render(request, 'contact_us.html')
+
