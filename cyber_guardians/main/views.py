@@ -157,16 +157,17 @@ def contact_us(request):
                 settings.DEFAULT_FROM_EMAIL,
                 [settings.CONTACT_EMAIL],  # Set this in your settings.py
                 fail_silently=False,
-            )
-            return render(request, 'contact_us.html', {
+                )
+			return render(request, 'contact_us.html', {
         	'success': True
         	})
 
-        except Exception as e:
-            # Handle the error (optional logging can be added here)
-            print(f"Error sending email: {e}")
-            return render(request, 'contact_us.html', {'error': True
+		except Exception as e:
+			print(f"Error sending email: {e}")
+			return render(request, 'contact_us.html', {'error': True
             })
+	return render(request, 'contact_us.html')
 
-    return render(request, 'contact_us.html')
 
+def malware_view(request):
+    return render(request, 'malware.html') 

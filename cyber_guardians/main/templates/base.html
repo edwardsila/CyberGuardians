@@ -30,6 +30,12 @@
                 <li><a href="{% url 'training_list' %}">Train</a></li>
                 </li>
                 <li><a href="{% url 'contact_us' %}">Contact</a></li>
+                <li><a href="{% url 'admin:index' %}">Admin</a></li>
+
+                {% if user.is_authenticated and user.is_staff %}
+                <li><a href="{% url 'report_list' %}">Reported Incidences</a></li>
+                {% endif %}
+
                    {% if not request.user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">Login</a>
@@ -52,7 +58,7 @@
     </header>
     <br><br>
 
-    <main class="container mt-4">
+    <main>
         {% if messages %}
             <div class="alert alert-info" role="alert">
                 {% for message in messages %}
@@ -80,5 +86,32 @@
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/baguetteBox.min.js"></script>
     <script src="assets/js/creative.js"></script>
+
+    <script type="text/javascript">
+    const codeLines = [
+    "import security_module",
+    "def encrypt(data):",
+    "    return encrypted_data",
+    "if __name__ == '__main__':",
+    "    print(encrypt('Sensitive Data'))"
+];
+
+let index = 0;
+const codeElement = document.getElementById('code');
+
+function displayCode() {
+    if (index < codeLines.length) {
+        codeElement.innerHTML += codeLines[index] + "<br>";
+        index++;
+        setTimeout(displayCode, 1500); // Adjust timing as needed
+    }
+}
+
+displayCode();
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 </body>
 </html>

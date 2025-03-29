@@ -3,23 +3,33 @@
 {% block title %}Trainig Modules - CyberGuardians{% endblock %}
 
 {% block content %}
-<br><Br>
-  <div class="container mt-5">
-        <h1>Training Modules</h1>
-        <ul class="list-group">
-            {% for module in modules %}
-                <li class="list-group-item">
-                    <a href="{% url 'training' module.id %}">{{ module.title }}</a>
-                    <p>{{ module.description|truncatewords:20 }}</p>  <!-- Show a brief description -->
-                </li>
-            {% empty %}
-                <li class="list-group-item">No training modules available.</li>
-            {% endfor %}
-        </ul>
-        <br><br>
-         <a href="{% url 'home' %}" class="btn btn-primary btn-lg">Back</a>
+<br><br>
+<div class="container mt-5 text-dark p-4">
+    <h1>Training Modules</h1>
+    <br>
+    <div class="row">
+        {% for module in modules %}
+            <div class="col-md-4 mb-4"> <!-- Adjust the column size as needed -->
+                <div class="card h-100 shadow-sm"> <!-- Card with shadow for depth -->
+                    <div class="card-body">
+                        <h5 class="card-title">{{ module.title }}</h5>
+                        <p class="card-text">{{ module.description|truncatewords:20 }}</p> <!-- Show a brief description -->
+                        <div class="d-flex justify-content-center">
+                        <a href="{% url 'training' module.id %}" class="btn btn-outline-dark">View Module</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <div class="alert alert-secondary text-center" role="alert">No training modules available.</div>
+            </div>
+        {% endfor %}
     </div>
-<br><Br><br><br>
-<br><Br><br><br>
+    <br><br>
+    <a href="{% url 'home' %}" class="btn btn-primary btn-lg">Back</a>
+</div>
+<br><br><br><br>
+<br><br><br><br>
 
 {% endblock %}

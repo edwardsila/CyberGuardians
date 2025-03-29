@@ -18,4 +18,5 @@ urlpatterns = [
     path('resources/<int:pk>/', views.ResourceDetailView.as_view(), name='resource_detail'),
     path('about/', views.about_us, name='about_us'),
     path('contact/', views.contact_us, name='contact_us'),
+    path('malware/', views.malware_view, name='malware'),
 ]

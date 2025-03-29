@@ -3,7 +3,29 @@
 {% block title %}Training Modules - CyberGuardians{% endblock %}
 
 {% block content %}
- <div class="container mt-5">
+<style type="text/css">
+    .content {
+    line-height: 1.6; /* Improve line spacing */
+    font-size: 1.1rem; /* Slightly larger font size for readability */
+}
+
+.content h2, .content h3, .content h4 {
+    margin-top: 1.5rem; /* Add space above headings */
+    margin-bottom: 0.5rem; /* Add space below headings */
+}
+
+.content p {
+    margin-bottom: 1rem; /* Add space between paragraphs */
+}
+
+.content ul, .content ol {
+    margin-left: 20px; /* Indent lists */
+}
+</style>
+
+
+ <div class="container mt-7 text-light">
+    <br>
         <h1><strong>{{ module.title }}</strong></h1>
         <br>
          {% if module.image %}
@@ -16,8 +38,8 @@
         <p><strong>Content:</strong>
             <br>
           <div class="accordion" id="trainingModuleAccordion">
-            <div class="card">
-                <div class="card-header" id="headingOne">
+            <div class="card bg-dark text-light">
+                <div class="card-header bg-secondary" id="headingOne">
                     <h2 class="mb-0">
                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                             <i class="fas fa-chevron-down"></i> Module Content 1
@@ -26,8 +48,8 @@
                 </div>
 
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#trainingModuleAccordion">
-                    <div class="card-body">
-                        {{ module.content }}
+                    <div class="content">
+                        {{ module.content|safe }}
                     </div>
                 </div>
             </div>
@@ -48,8 +70,9 @@
             <p>No quiz available for this module.</p>
         {% endif %}
         <br><br>
-         <a href="{% url 'home' %}" class="btn btn-primary btn-lg">Back</a>
-        
+        <div class="d-flex justify-content-center">
+                        <a href="{% url 'training_list' %}" class="btn btn-secondary">Back</a>
+                    </div>
         <p><strong>Created At:</strong> {{ module.created_at }}</p>
         <p><strong>Updated At:</strong> {{ module.updated_at }}</p>
     </div>

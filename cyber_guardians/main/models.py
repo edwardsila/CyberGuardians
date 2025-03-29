@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime
 from django.utils import timezone
+from ckeditor.fields import RichTextField
 
 
 class userProfile(models.Model):
@@ -20,7 +21,7 @@ class trainingModule(models.Model):
     description = models.TextField(help_text="Provide a brief description of the module.")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    content = models.TextField(help_text="Main content of the training module.")
+    content = RichTextField(help_text="Main content of the training module.")
     duration_minutes = models.PositiveIntegerField(help_text="Estimated duration in minutes.")
     is_active = models.BooleanField(default=True, help_text="Is this module currently active?")
 
