@@ -36,24 +36,7 @@
         <p><strong>Description:</strong></p><p>{{ module.description }}</p>
         <p><strong>Duration:</strong> {{ module.duration_minutes }} minutes</p>
         <p><strong>Content:</strong>
-            <br>
-          <div class="accordion" id="trainingModuleAccordion">
-            <div class="card bg-dark text-light">
-                <div class="card-header bg-secondary" id="headingOne">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            <i class="fas fa-chevron-down"></i> Module Content 1
-                        </button>
-                    </h2>
-                </div>
-
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#trainingModuleAccordion">
-                    <div class="content">
-                        {{ module.content|safe }}
-                    </div>
-                </div>
-            </div>
-        
+                    
         <br>
         {% if module.video_url %}
             <h3>Video</h3>
