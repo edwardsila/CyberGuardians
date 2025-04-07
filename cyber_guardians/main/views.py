@@ -175,6 +175,15 @@ def contact_us(request):
 def malware_view(request):
     return render(request, 'malware.html')
 
+def phishing_view(request):
+    return render(request, 'phishing.html')
+
+def password_view(request):
+    return render(request, 'password.html')
+
+def incident_view(request):
+    return render(request, 'incident.html')    
+
 def content_list(request):
 	return render(request, 'content_list.html')
 

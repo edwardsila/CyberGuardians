@@ -84,7 +84,7 @@ html, body {
     position: absolute;
     background-color: #34495e;
     min-width: 160px;
-    z-index: 1;
+    z-index: 1001;
 }
 
 .dropdown-content a {
@@ -269,5 +269,30 @@ h2 {
 
 .list-group-item a:hover {
     color: #0056b3; /* Darker color on hover */
+}
+
+.alert {
+    position: fixed;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.alert.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.alert-info {
+    background-color: #d9edf7;
+    color: #31708f;
+    border: 1px solid #bce8f1;
 }
 ////

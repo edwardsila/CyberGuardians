@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}Phishing - CyberGuardians{% endblock %}
+
+{% block content %}
+<br><br>
+
+    <title>Understanding Phishing</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+    <style>
+        body {
+            background-color: #343a40; /* Dark background for better readability */
+            color: #f8f9fa; /* Light text color */
+            font-size: 1.2rem; /* Slightly larger font size for readability */
+        }
+        .content {
+            line-height: 1.8; /* Improve line spacing */
+            margin: 30px; /* Add margin for spacing */
+        }
+        h1, h2, h3, h4 {
+            margin-top: 2rem; /* Add space above headings */
+            margin-bottom: 1rem; /* Add space below headings */
+            color: #ffffff; /* White color for headings */
+            font-weight: bold; /* Bold headings */
+        }
+        p {
+            margin-bottom: 1.5rem; /* Add space between paragraphs */
+        }
+        ul, ol {
+            margin-left: 30px; /* Indent lists */
+        }
+        a.btn {
+            background-color: #007bff; /* Bootstrap primary color */
+            color: #ffffff; /* White text for buttons */
+            font-size: 1.2rem; /* Slightly larger font size for buttons */
+        }
+        a.btn:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+    </style>
+
+    <div class="container mt-5">
+        <h1>Understanding Phishing</h1>
+        
+        <h2>What is Phishing?</h2>
+        <p>Phishing is a type of cyber attack that involves tricking individuals into providing sensitive information, such as usernames, passwords, credit card numbers, and other personal data. Attackers often use deceptive emails, messages, or websites that appear legitimate to lure victims into revealing their information.</p>
+
+        <h2>Types of Phishing</h2>
+        <p>Phishing can take various forms, each with its own methods of deception. Here are some common types of phishing:</p>
+        <ul>
+            <li><strong>Email Phishing:</strong> The most common form, where attackers send fraudulent emails that appear to be from reputable sources, asking recipients to click on links or provide personal information.</li>
+            <li><strong>Spear Phishing:</strong> A targeted form of phishing where attackers customize their messages to a specific individual or organization, often using personal information to increase credibility.</li>
+            <li><strong>Whaling:</strong> A type of spear phishing that targets high-profile individuals, such as executives or important figures within an organization, to steal sensitive information.</li>
+            <li><strong>Smishing:</strong> Phishing conducted via SMS text messages, where attackers send fraudulent messages to trick recipients into clicking on malicious links or providing personal information.</li>
+            <li><strong>Vishing:</strong> Voice phishing, where attackers use phone calls to impersonate legitimate organizations and request sensitive information from victims.</li>
+        </ul>
+
+        <h2>How Phishing Works</h2>
+        <p>Phishing attacks typically follow a common pattern:</p>
+        <ul>
+            <li><strong>Deceptive Communication:</strong> Attackers send emails or messages that appear to be from trusted sources, often including urgent requests or alarming messages to prompt quick action.</li>
+            <li><strong>Malicious Links:</strong> The communication contains links that lead to fake websites designed to look like legitimate ones, where victims are prompted to enter their sensitive information.</li>
+            <li><strong>Data Harvesting:</strong> Once victims enter their information, attackers collect it for malicious purposes, such as identity theft or unauthorized access to accounts.</li>
+        </ul>
+
+        <h2>Protecting Yourself from Phishing</h2>
+        <p>To protect yourself from phishing attacks, it's essential to be vigilant and follow these best practices:</p>
+        <ul>
+            <li><strong>Verify the Source:</strong> Always check the sender's email address and look for signs of phishing, such as misspellings or unusual requests.</li>
+            <li><strong>Hover Over Links:</strong> Before clicking on links, hover over them to see the actual URL. Ensure it matches the legitimate website.</li>
+            <li><strong>Be Cautious with Attachments:</strong> Avoid opening attachments from unknown or suspicious sources, as they may contain malware.</li>
+            <li><strong>Use Two-Factor Authentication:</strong> Enable two-factor authentication on your accounts to add an extra layer of security.</li>
+            <li><strong>Report Phishing Attempts:</strong> If you receive a suspicious email or message, report it to your IT department or the appropriate authorities.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>Phishing is a prevalent threat that can lead to significant financial and personal loss. By understanding the types of phishing attacks and following best practices for protection, you can safeguard your sensitive information and reduce the risk of falling victim to these scams.</p>
+
+        <a href="{% url 'content' %}" class="btn btn-primary">Back to Content</a> <!-- Link back to the main page -->
+    </div>
+       
+<br><br><br><br>
+<br><br><br><br>
+
+{% endblock %}
