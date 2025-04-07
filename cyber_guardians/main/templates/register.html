@@ -7,15 +7,11 @@
 {% block content %}
 
 <style type="text/css">
-    body {
-  background-color: #d3d3d3;
-  background: linear-gradient(to right, #333, #666);
-}
 
 .card-img-left {
   width: 45%;
   /* Link to your background image using in the property below! */
-  background: scroll center url('{% static 'main/images/login3.png' %}');
+  background: scroll center url('{% static 'images/home3.png' %}');
   background-size: contain;
 }
 
@@ -40,7 +36,7 @@
     <div class="row">
         <div class="col-lg-10 col-xl-9 mx-auto">
             <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
-                <div class="card-img-left d-none d-md-flex" style="background-image: url('{% static 'main/images/login3.png' %}'); background-size: cover;"></div> <!-- Background image for card -->
+                <div class="card-img-left d-none d-md-flex" style="background-image: url('{% static 'images/home3.png' %}'); background-size: cover;"></div> <!-- Background image for card -->
                 <div class="card-body p-4 p-sm-5">
                     <h5 class="card-title text-center mb-5 fw-light fs-5">Register</h5>
                     <form method="POST">

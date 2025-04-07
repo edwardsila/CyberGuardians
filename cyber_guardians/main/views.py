@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .models import trainingModule, quiz, question, answer, incidentReport, Resource
-from .forms import incidentReportForm
+from .models import trainingModule, quiz, question, answer, incidentReport, Resource, userProfile
+from .forms import incidentReportForm, UserProfileForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
 from django.core.mail import send_mail
@@ -91,8 +91,11 @@ def quiz_view(request, quiz_id):
 	quiz_instance = get_object_or_404(quiz, id=quiz_id)
 	return render(request, 'quiz.html', {'quiz': quiz_instance})
 
-@login_required
+#@login_required
 def report_incident(request):
+	if not request.user.is_authenticated:
+		return redirect('login')
+
 	if request.method == 'POST':
 		form = incidentReportForm(request.POST)
 		if form.is_valid():
@@ -170,4 +173,26 @@ def contact_us(request):
 
 
 def malware_view(request):
-    return render(request, 'malware.html') 
+    return render(request, 'malware.html')
+
+def content_list(request):
+	return render(request, 'content_list.html')
+
+#@login_required
+def profile_view(request):
+
+	    # Check if the user is authenticated
+    if not request.user.is_authenticated:
+        return redirect('login')
+
+    profile = userProfile.objects.get(user=request.user)
+
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')  # Redirect to the profile page after saving
+    else:
+        form = UserProfileForm(instance=profile)
+
+    return render(request, 'profile.html', {'form': form})

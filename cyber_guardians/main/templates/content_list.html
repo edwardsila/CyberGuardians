@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Content list - CyberGuardians{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="container mt-5 text-dark p-4">
+    <h1>Content</h1>
+    <br>
+    <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Malware Content</h5>
+                        <div class="d-flex justify-content-center">
+                        <a href="{% url 'malware' %}" class="btn btn-outline-dark">Malware</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Phishing Content</h5>
+                        <div class="d-flex justify-content-center">
+                        <a href="{% url 'malware' %}" class="btn btn-outline-dark">Phishing</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <br><br>
+    <a href="{% url 'training_list' %}" class="btn btn-primary btn-lg">Back</a>
+</div>
+<br><br><br><br>
+<br><br><br><br>
+
+{% endblock %}

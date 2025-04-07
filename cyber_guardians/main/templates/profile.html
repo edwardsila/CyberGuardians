@@ -1,0 +1,42 @@
+<!-- templates/about/about_us.html -->
+{% extends 'base.html' %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Edit Profile</h2>
+    <br>
+    <h3 class="text-center">Username: {{ user.username }}</h3>
+    <form method="POST" enctype="multipart/form-data" class="mt-4">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="bio">Bio</label>
+            {{ form.bio }}  <!-- No need for as_widget here -->
+        </div>
+       <div class="container mt-5">
+    <h2 class="text-center">Profile</h2>
+    <div class="text-center">
+        <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" class="img-fluid rounded-circle" style="width: 150px; height: 150px;">
+    </div>
+    
+</div>
+        <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+    </form>
+    <br>
+    <a href="{% url 'home' %}" class="btn btn-primary btn-lg">Back</a>
+</div>
+<br><br><br>
+{% endblock %}
+<script>
+    document.getElementById('id_profile_picture').onchange = function (event) {
+        const reader = new FileReader();
+        reader.onload = function () {
+            const img = document.createElement('img');
+            img.src = reader.result;
+            img.style.width = '100px'; // Set a width for the preview
+            document.getElementById('preview').innerHTML = '';
+            document.getElementById('preview').appendChild(img);
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>
